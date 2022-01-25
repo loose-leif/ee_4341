@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../../Downloads/x500_main.c ../../Downloads/io_setup.c
+SOURCEFILES_QUOTED_IF_SPACED=sourceOfFiles/io_setup.c sourceOfFiles/x500_main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1199933227/x500_main.o ${OBJECTDIR}/_ext/1199933227/io_setup.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1199933227/x500_main.o.d ${OBJECTDIR}/_ext/1199933227/io_setup.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/sourceOfFiles/io_setup.o ${OBJECTDIR}/sourceOfFiles/x500_main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/sourceOfFiles/io_setup.o.d ${OBJECTDIR}/sourceOfFiles/x500_main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1199933227/x500_main.o ${OBJECTDIR}/_ext/1199933227/io_setup.o
+OBJECTFILES=${OBJECTDIR}/sourceOfFiles/io_setup.o ${OBJECTDIR}/sourceOfFiles/x500_main.o
 
 # Source Files
-SOURCEFILES=../../Downloads/x500_main.c ../../Downloads/io_setup.c
+SOURCEFILES=sourceOfFiles/io_setup.c sourceOfFiles/x500_main.c
 
 
 
@@ -88,7 +88,7 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=32MX470F512L
 MP_LINKER_FILE_OPTION=
@@ -107,30 +107,30 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/_ext/1199933227/x500_main.o: ../../Downloads/x500_main.c  .generated_files/flags/default/f83a63f1ed71b729e4b8ab18c2cda8a1f1c842ba .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
-	@${MKDIR} "${OBJECTDIR}/_ext/1199933227" 
-	@${RM} ${OBJECTDIR}/_ext/1199933227/x500_main.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1199933227/x500_main.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1199933227/x500_main.o.d" -o ${OBJECTDIR}/_ext/1199933227/x500_main.o ../../Downloads/x500_main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+${OBJECTDIR}/sourceOfFiles/io_setup.o: sourceOfFiles/io_setup.c  .generated_files/37ceb25b0fc09e3e04880385a85ccd0fe87179de.flag .generated_files/a5e1a4a9a118710d474a57f1a370990f423784bd.flag
+	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
+	@${RM} ${OBJECTDIR}/sourceOfFiles/io_setup.o.d 
+	@${RM} ${OBJECTDIR}/sourceOfFiles/io_setup.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/io_setup.o.d" -o ${OBJECTDIR}/sourceOfFiles/io_setup.o sourceOfFiles/io_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
-${OBJECTDIR}/_ext/1199933227/io_setup.o: ../../Downloads/io_setup.c  .generated_files/flags/default/aea40045a1b9720049e012a0355703ae93db0865 .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
-	@${MKDIR} "${OBJECTDIR}/_ext/1199933227" 
-	@${RM} ${OBJECTDIR}/_ext/1199933227/io_setup.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1199933227/io_setup.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1199933227/io_setup.o.d" -o ${OBJECTDIR}/_ext/1199933227/io_setup.o ../../Downloads/io_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+${OBJECTDIR}/sourceOfFiles/x500_main.o: sourceOfFiles/x500_main.c  .generated_files/884f50a36eb0e269c75643808d502c0c65444c22.flag .generated_files/a5e1a4a9a118710d474a57f1a370990f423784bd.flag
+	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
+	@${RM} ${OBJECTDIR}/sourceOfFiles/x500_main.o.d 
+	@${RM} ${OBJECTDIR}/sourceOfFiles/x500_main.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/x500_main.o.d" -o ${OBJECTDIR}/sourceOfFiles/x500_main.o sourceOfFiles/x500_main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
 else
-${OBJECTDIR}/_ext/1199933227/x500_main.o: ../../Downloads/x500_main.c  .generated_files/flags/default/7ef0e2237ed3c853570c229340188420626cc579 .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
-	@${MKDIR} "${OBJECTDIR}/_ext/1199933227" 
-	@${RM} ${OBJECTDIR}/_ext/1199933227/x500_main.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1199933227/x500_main.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1199933227/x500_main.o.d" -o ${OBJECTDIR}/_ext/1199933227/x500_main.o ../../Downloads/x500_main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+${OBJECTDIR}/sourceOfFiles/io_setup.o: sourceOfFiles/io_setup.c  .generated_files/2a311e978c34aba69da3064d8427a78518960702.flag .generated_files/a5e1a4a9a118710d474a57f1a370990f423784bd.flag
+	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
+	@${RM} ${OBJECTDIR}/sourceOfFiles/io_setup.o.d 
+	@${RM} ${OBJECTDIR}/sourceOfFiles/io_setup.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/io_setup.o.d" -o ${OBJECTDIR}/sourceOfFiles/io_setup.o sourceOfFiles/io_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
-${OBJECTDIR}/_ext/1199933227/io_setup.o: ../../Downloads/io_setup.c  .generated_files/flags/default/9df7658df577104121979131647efe6115cdf0fd .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
-	@${MKDIR} "${OBJECTDIR}/_ext/1199933227" 
-	@${RM} ${OBJECTDIR}/_ext/1199933227/io_setup.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1199933227/io_setup.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1199933227/io_setup.o.d" -o ${OBJECTDIR}/_ext/1199933227/io_setup.o ../../Downloads/io_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+${OBJECTDIR}/sourceOfFiles/x500_main.o: sourceOfFiles/x500_main.c  .generated_files/5245c008ef6ec96a6731ebe169aa7ad4fd9cc5dc.flag .generated_files/a5e1a4a9a118710d474a57f1a370990f423784bd.flag
+	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
+	@${RM} ${OBJECTDIR}/sourceOfFiles/x500_main.o.d 
+	@${RM} ${OBJECTDIR}/sourceOfFiles/x500_main.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/x500_main.o.d" -o ${OBJECTDIR}/sourceOfFiles/x500_main.o sourceOfFiles/x500_main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
 endif
 
@@ -143,15 +143,15 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${DISTDIR}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
-	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -g -mdebugger -D__MPLAB_DEBUGGER_PK3=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o ${DISTDIR}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)   -mreserve=data@0x0:0x1FC -mreserve=boot@0x1FC02000:0x1FC02FEF -mreserve=boot@0x1FC02000:0x1FC0275F  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D=__DEBUG_D,--defsym=__MPLAB_DEBUGGER_PK3=1,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,${DISTDIR}/memoryfile.xml -mdfp="${DFP_DIR}"
+dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
+	${MP_CC} $(MP_EXTRA_LD_PRE) -g -mdebugger -D__MPLAB_DEBUGGER_SIMULATOR=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)      -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D=__DEBUG_D,--defsym=__MPLAB_DEBUGGER_SIMULATOR=1,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml 
 	
 else
-${DISTDIR}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
-	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o ${DISTDIR}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,${DISTDIR}/memoryfile.xml -mdfp="${DFP_DIR}"
-	${MP_CC_DIR}\\xc32-bin2hex ${DISTDIR}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
+dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml 
+	${MP_CC_DIR}\\xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab0.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
 endif
 
 
@@ -164,8 +164,8 @@ endif
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r ${OBJECTDIR}
-	${RM} -r ${DISTDIR}
+	${RM} -r build/default
+	${RM} -r dist/default
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl

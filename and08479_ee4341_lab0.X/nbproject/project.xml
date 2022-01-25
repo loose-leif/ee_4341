@@ -13,7 +13,7 @@
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
-                <sourceRootElem>../../Downloads</sourceRootElem>
+                <sourceRootElem>sourceOfFiles</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
