@@ -20,9 +20,8 @@ void setup(void)
 int main(void)
 {
     setup();
+    uart1_setup();
     delay(100);                  // 100 ms delay as precaution
-
-    delay(1);
     
     while(1)
     { 

@@ -196,7 +196,7 @@ void buttons(void)
     {
         
         delay(30);
-        if(!BUTTON1){ button_on(1); printf("%d", 3); }
+        if(!BUTTON1){ button_on(1); printf("%d", 42); }
         
     }
     else
@@ -208,7 +208,7 @@ void buttons(void)
     {
         
         delay(30);
-        if(!BUTTON2){ button_on(2); printf("%d", 3); }
+        if(!BUTTON2){ button_on(2); printf("%d", 29); }
         
     }
     else
@@ -220,7 +220,7 @@ void buttons(void)
     {
         
         delay(30);
-        if(!BUTTON3){ button_on(3); printf("%d", 3); }
+        if(!BUTTON3){ button_on(3); printf("%d", 000); }
         
     }
     else
