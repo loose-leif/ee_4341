@@ -137,10 +137,6 @@ void io_setup(void)
     CFGCONbits.IOLOCK = 1;          // lock   PPS
     system_reg_lock; 
     
-    
-    asm("li $s2, 0x00100001");
-    asm("mtc0 $s2, $11");
-    
     asm("li $s2, 0x124F80");
     asm("mtc0 $s2, $11");
 }
