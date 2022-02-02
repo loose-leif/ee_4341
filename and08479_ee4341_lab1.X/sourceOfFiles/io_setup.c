@@ -200,12 +200,13 @@ void buttons(void)
 {
     // Include code for debouncing every time a button is pressed
     // BUTTONs are pulled-up, so poll for low state
+    // With De-bounce
     
     if (!BUTTON1)
     {
         
         delay(30);
-        if(!BUTTON1){ button_on(1); printf("%d", 42); }
+        if(!BUTTON1){ button_on(1); printf("Button 1\n"); }
         
     }
     else
@@ -217,7 +218,7 @@ void buttons(void)
     {
         
         delay(30);
-        if(!BUTTON2){ button_on(2); printf("%d", 29); }
+        if(!BUTTON2){ button_on(2); printf("Button 2\n"); }
         
     }
     else
@@ -229,7 +230,7 @@ void buttons(void)
     {
         
         delay(30);
-        if(!BUTTON3){ button_on(3); printf("%d", 000); }
+        if(!BUTTON3){ button_on(3); puts("\033[3B"); }
         
     }
     else
