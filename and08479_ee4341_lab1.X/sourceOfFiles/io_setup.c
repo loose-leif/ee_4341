@@ -137,8 +137,8 @@ void io_setup(void)
     CFGCONbits.IOLOCK = 1;          // lock   PPS
     system_reg_lock; 
     
-    asm("li $s2, 0x124F80");
-    asm("mtc0 $s2, $11");
+    //asm("li $s2, 0x124F80");
+    //asm("mtc0 $s2, $11");
 }
 
 void __attribute__((vector(_CORE_TIMER_VECTOR), interrupt(CORE_TIMER_INT_LINKAGE), nomips16)) RtcIsr(void)
