@@ -133,34 +133,15 @@ void io_setup(void)
 	
  	U1RXRbits.U1RXR = 0b0010;
     RPF5Rbits.RPF5R = 0b0011;
+    
+    SDI2Rbits.SDI2R = 0b0001;
+    RPG8Rbits.RPG8R = 0b0110;
 
     CFGCONbits.IOLOCK = 1;          // lock   PPS
     system_reg_lock; 
-    
-    //asm("li $s2, 0x124F80");
-    //asm("mtc0 $s2, $11");
-}
 
-void __attribute__((vector(_CORE_TIMER_VECTOR), interrupt(CORE_TIMER_INT_LINKAGE), nomips16)) RtcIsr(void)
-{
-
-    delay(1000);
-    
-}
-
-void delay(int ms)
-{
-    int i,j;
-    
-    for(i=0;i<ms;i++){
-        
-        for(j=0;j<9996;j++){
+    return;
             
-            asm("NOP");
-            
-        }
-          
-    }
 }
 
 void button_on(int x)
@@ -196,6 +177,45 @@ void button_off(int x)
     }
 }
 
+// - - - imported - - -
+
+void accel_print_data(char axis)
+{
+    float data;
+    
+    if (axis == 'x')
+    {
+        data = accel_read_x();
+    }
+    else if (axis == 'y')
+    {
+        data = accel_read_y();
+    }
+    else if (axis == 'z')
+    {
+        data = accel_read_x();
+    }
+    
+    char buffer[50]; 
+    sprintf(buffer, "%f", data); 
+    printf("%s \n", buffer);
+}
+
+void accel_move_cursor(void)
+{
+    if (accel_read_x() > 0.4)
+    {
+        putchar(' ');
+    }
+    else if (accel_read_x() < -0.4)
+    {
+        putchar(0x8);
+    }
+    
+}
+
+// - - - end import - - -
+
 void buttons(void)
 {
     // Include code for debouncing every time a button is pressed
@@ -206,7 +226,11 @@ void buttons(void)
     {
         
         delay(30);
-        if(!BUTTON1){ button_on(1); printf("Button 1\n"); }
+        if(!BUTTON1){ button_on(1); 
+        printf("X Axis:\t");
+        accel_print_data('x');
+        
+    }
         
     }
     else
@@ -218,7 +242,13 @@ void buttons(void)
     {
         
         delay(30);
-        if(!BUTTON2){ button_on(2); printf("Button 2\n"); }
+        if(!BUTTON2){ 
+            
+            button_on(2); 
+            printf("Y Axis:\t"); 
+            accel_print_data('y');
+            
+        }
         
     }
     else
