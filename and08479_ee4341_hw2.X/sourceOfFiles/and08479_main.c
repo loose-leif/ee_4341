@@ -73,8 +73,8 @@ int powerr(int basee, int n){
 int main(void)
 {
     
-    a = power(2,2);
-    b = powerr(2,2);
+    a = power(2,5);
+    b = powerr(2,5);
     
     c = a + b;
     
