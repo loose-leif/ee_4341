@@ -24,7 +24,7 @@ int16_t spi2_read_register(uint8_t address)
     SPI2BUF = read_frame;
     
     // wait for the SPI2 buffer full bit  
-    while(SPI2STATbits.SPIRBF == 0);
+    while(SPI2STATbits.SPIRBF == 0){}
     
     // read the SPI2 buffer contents with the "value" variable                                      
     value = SPI2BUF;

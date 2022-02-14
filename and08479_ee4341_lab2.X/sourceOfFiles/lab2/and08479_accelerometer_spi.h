@@ -7,8 +7,8 @@
  */
 /* ************************************************************************** */
 
-#ifndef _and08479_ACCELEROMETER_SPI_H    /* Guard against multiple inclusion */
-#define _and08479_ACCELEROMETER_SPI_H 
+#ifndef _AND08479_ACCELEROMETER_SPI_H    /* Guard against multiple inclusion */
+#define _AND08479_ACCELEROMETER_SPI_H 
 
 void spi2_setup(void);
 void spi2_write_register(uint8_t address, uint8_t data);

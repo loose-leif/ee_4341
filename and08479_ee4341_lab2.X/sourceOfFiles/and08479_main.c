@@ -9,7 +9,7 @@
 
 #include "io_setup.h"
 #include "uart1_setup.h"
-#include "and08479_accelerometer_spi"
+#include "lab2/and08479_accelerometer_spi.h"
 #include "stdio.h"
 #include "xc.h"
 
