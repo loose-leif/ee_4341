@@ -65,6 +65,19 @@ void io_setup(void)
 // Below are the defaults , you will have to edit to make changes
 // Add a comment for each edit you make, so you don't forget
 
+    
+    // HOMEWORK 2 
+//    long int init = (__builtin_mfc0(13,0) | 0x800000);
+//    __builtin_mtc0(13,0,init);
+//    
+//    INTCONbits.MVEC = 0;
+//    
+//    long int init = (__builtin_mfc0(12,0) & 0xFFFFFFFE);
+//    __builtin_mtc0(12,0,0x800000);
+    
+    
+    // END HOMEWORK 2
+    
     /****************************************************************************
      * Setting the Output Latch SFR(s)
      ***************************************************************************/
@@ -143,132 +156,6 @@ void io_setup(void)
     return;
             
 }
-
-void button_on(int x)
-{
-    if (x == 1)
-    {
-        LED1 = 1;
-	// whatever else you want to do if button 1 is pressed
-    }
-    else if (x == 2)
-    {
-        LED2 = 1;
-    }
-    else if (x == 3)
-    {
-        LED3 = 1;
-    }
-}
-
-void button_off(int x)
-{
-    if (x == 1)
-    {
-        LED1 = 0;
-    }
-    else if (x == 2)
-    {
-        LED2 = 0;
-    }
-    else if (x == 3)
-    {
-        LED3 = 0;
-    }
-}
-
-// - - - imported - - -
-
-void accel_print_data(char axis)
-{
-    float data;
-    
-    if (axis == 'x')
-    {
-        data = accel_read_x();
-    }
-    else if (axis == 'y')
-    {
-        data = accel_read_y();
-    }
-    else if (axis == 'z')
-    {
-        data = accel_read_x();
-    }
-    
-    char buffer[50]; 
-    sprintf(buffer, "%f", data); 
-    printf("%s \n", buffer);
-}
-
-void accel_move_cursor(void)
-{
-    if (accel_read_x() > 0.4)
-    {
-        putchar(' ');
-    }
-    else if (accel_read_x() < -0.4)
-    {
-        putchar(0x8);
-    }
-    
-}
-
-// - - - end import - - -
-
-void buttons(void)
-{
-    // Include code for debouncing every time a button is pressed
-    // BUTTONs are pulled-up, so poll for low state
-    // With De-bounce
-    
-    if (!BUTTON1)
-    {
-        
-        delay(30);
-        if(!BUTTON1){ button_on(1); 
-        printf("X Axis:\t");
-        accel_print_data('x');
-        
-    }
-        
-    }
-    else
-    {
-        button_off(1);
-    }
-    
-    if (!BUTTON2)
-    {
-        
-        delay(30);
-        if(!BUTTON2){ 
-            
-            button_on(2); 
-            printf("Y Axis:\t"); 
-            accel_print_data('y');
-            
-        }
-        
-    }
-    else
-    {
-        button_off(2);
-    }
-    
-    if (!BUTTON3)
-    {
-        
-        delay(30);
-        if(!BUTTON3){ button_on(3); puts("\033[3B"); }
-        
-    }
-    else
-    {
-        button_off(3);
-    } 
-}
-
 
 /* *****************************************************************************
  End of File
