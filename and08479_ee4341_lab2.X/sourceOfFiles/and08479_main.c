@@ -7,6 +7,7 @@
  */
 /* ************************************************************************** */
 
+#include "xc.h"
 #include "io_setup.h"
 #include "uart1_setup.h"
 #include "stdio.h"
@@ -226,13 +227,93 @@ void spi2_setup(void)
     
     // enable SPI2 (ON)
     SPI2CONbits.ON = 1;
+    
+   // DELETE LATER
+    
+    // clear SPI2CON register
+    SPI2CON = 0;
+    SPI2CON2 = 0;
+    
+    // clear SPI2BUF register
+    SPI2BUF = 0;
+    
+    // 1 MHz @ PBclock of 40 MHz
+    SPI2BRG = 19;   
+    SPI2CONbits.MCLKSEL = 0;
+               
+    // clear overflow flag in SPI2STAT register
+    SPI2STATbits.SPIROV = 0;
+    
+    // 8 bit communication
+    SPI2CONbits.MODE16 = 0;
+    SPI2CONbits.MODE32 = 0;
 
+    // interrupt work
+    IPC8bits.SPI2IP = 0b101;
+    IPC8bits.SPI2IS = 0b01;
+
+    IEC1bits.SPI2EIE = 1;
+    IEC1bits.SPI2TXIE = 1;
+    IEC1bits.SPI2RXIE = 1;
+    
+    //  multi vector mode config
+    
+    unsigned int init;
+    
+    __builtin_disable_interrupts;
+    
+    // init = __builtin_mfc0(12,0) | 0x00400000;
+    // __builtin_mtc0(12,0,init);
+    
+    __builtin_mtc0(15,1,0x9D01F000);
+    
+    init = __builtin_mfc0(13,0) | 0x00800000;
+    __builtin_mtc0(13,0,init);
+    
+    __builtin_enable_interrupts;
+
+    INTCONbits.MVEC = 1;
+
+    // master mode
+    SPI2CONbits.MSTEN = 1;
+    
+    // enable SPI2 (ON)
+    SPI2CONbits.ON = 1;
+
+
+    
    // DELETE LATER
             
     return;
     
     
 }
+
+// DELETE LATER
+
+volatile char circBuff[64] = {};
+volatile int front = 0;
+
+
+void __ISR(_SPI_2_VECTOR, IPL4)__SPI2Interrupt(void){
+    
+    IFS1bits.SPI2EIF = 0;
+    IFS1bits.SPI2RXIF = 0;
+    IFS1bits.SPI2TXIF = 0;
+    
+    circBuff[front] = SPI2BUF;
+    front++;
+    if(front==64){
+        
+        front = 0;
+        
+    }
+    
+    return;
+}
+
+
+// DELETE LATER
 
 // - - - START TEST DEMO - - -
 
@@ -384,9 +465,12 @@ int main(void)
     spi2_setup();
     delay(100);                  // 100 ms delay as precaution
     
+    //IFS1bits.SPI2EIF = 1;
+    //IFS1bits.SPI2RXIF = 1;
+    IFS1bits.SPI2TXIF = 1;
+    
     while(1)
     { 
-        
         buttons();
         //test_accel();
         
