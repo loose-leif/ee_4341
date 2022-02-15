@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=sourceOfFiles/and08479_main.c
+SOURCEFILES_QUOTED_IF_SPACED=testCompile.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/sourceOfFiles/and08479_main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/sourceOfFiles/and08479_main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/testCompile.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/testCompile.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/sourceOfFiles/and08479_main.o
+OBJECTFILES=${OBJECTDIR}/testCompile.o
 
 # Source Files
-SOURCEFILES=sourceOfFiles/and08479_main.c
+SOURCEFILES=testCompile.c
 
 
 
@@ -107,18 +107,18 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/sourceOfFiles/and08479_main.o: sourceOfFiles/and08479_main.c  .generated_files/flags/default/2f97b7769478a8ab9eb8cb4fac8ccb70f7af7b1 .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
-	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/and08479_main.o.d 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/and08479_main.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -O1 -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/and08479_main.o.d" -o ${OBJECTDIR}/sourceOfFiles/and08479_main.o sourceOfFiles/and08479_main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+${OBJECTDIR}/testCompile.o: testCompile.c  .generated_files/flags/default/38f12d0c98b7fb8941fb4861c8b5bdbb05caac43 .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/testCompile.o.d 
+	@${RM} ${OBJECTDIR}/testCompile.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/testCompile.o.d" -o ${OBJECTDIR}/testCompile.o testCompile.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 else
-${OBJECTDIR}/sourceOfFiles/and08479_main.o: sourceOfFiles/and08479_main.c  .generated_files/flags/default/c1e4bc67fef59f456f20c58185e0487b4435c5fc .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
-	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/and08479_main.o.d 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/and08479_main.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -O1 -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/and08479_main.o.d" -o ${OBJECTDIR}/sourceOfFiles/and08479_main.o sourceOfFiles/and08479_main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+${OBJECTDIR}/testCompile.o: testCompile.c  .generated_files/flags/default/9350518e45625a89d5597f4808e1e42d24c88657 .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/testCompile.o.d 
+	@${RM} ${OBJECTDIR}/testCompile.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/testCompile.o.d" -o ${OBJECTDIR}/testCompile.o testCompile.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 
