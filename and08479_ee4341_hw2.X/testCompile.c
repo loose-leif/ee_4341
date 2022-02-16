@@ -1,4 +1,5 @@
-long long a,b,c;
+signed long long a,b,c;
+
 int main(void)
 {
     
