@@ -1,0 +1,19 @@
+$(document).ready(function () {
+    if ($('.left-nav-content').length == 0) {
+        $('.two.columns.left-nav').wrapInner('<div class="left-nav-content"></div>');
+        $('.two.columns.left-nav').prepend('<div class="left-nav-header"><div class="left-nav-close-button" aria-label="Close Left Navigation Menu" onclick="toggleLeftNavMenu();">x</div></div>');
+        $('.two.columns.left-nav').parent().parent().prepend('<div class="curtain"></div><div class="left-nav-open-button" onclick="toggleLeftNavMenu();"><span class="left-nav-open-button__text">Menu</span><div class="left-nav-open-button__hamburger"></div></div>');
+    }
+});
+
+function toggleLeftNavMenu() {
+    var leftNav = $(".two.columns.left-nav")
+      , leftNavOpenButton = $(".left-nav-open-button")
+      , curtain = $(".curtain");
+    leftNavOpen ? (leftNav.removeClass("open"),
+    leftNavOpenButton.removeClass("hidden"),
+    curtain.removeClass("open")) : (leftNav.addClass("open"),
+    leftNavOpenButton.addClass("hidden"),
+    curtain.addClass("open")),
+    leftNavOpen = !leftNavOpen
+}

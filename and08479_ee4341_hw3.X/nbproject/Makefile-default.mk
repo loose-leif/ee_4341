@@ -107,30 +107,30 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/sourceOfFiles/io_setup.o: sourceOfFiles/io_setup.c  .generated_files/de63e16c4c4951a8ff2ada988f7a0f3fc13b0c19.flag .generated_files/35b059e026b463500ba6e17fe172f881244224c5.flag
+${OBJECTDIR}/sourceOfFiles/io_setup.o: sourceOfFiles/io_setup.c  .generated_files/flags/default/fe34e0572f8ef793d36cfe11312974ee0708fbd8 .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
 	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
 	@${RM} ${OBJECTDIR}/sourceOfFiles/io_setup.o.d 
 	@${RM} ${OBJECTDIR}/sourceOfFiles/io_setup.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/io_setup.o.d" -o ${OBJECTDIR}/sourceOfFiles/io_setup.o sourceOfFiles/io_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/io_setup.o.d" -o ${OBJECTDIR}/sourceOfFiles/io_setup.o sourceOfFiles/io_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/sourceOfFiles/x500_main.o: sourceOfFiles/x500_main.c  .generated_files/37677d70a9d4c32fceb234dbb949952aa765442c.flag .generated_files/35b059e026b463500ba6e17fe172f881244224c5.flag
+${OBJECTDIR}/sourceOfFiles/x500_main.o: sourceOfFiles/x500_main.c  .generated_files/flags/default/de2a347176465b08bfba68a821c939e2d65d11bc .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
 	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
 	@${RM} ${OBJECTDIR}/sourceOfFiles/x500_main.o.d 
 	@${RM} ${OBJECTDIR}/sourceOfFiles/x500_main.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/x500_main.o.d" -o ${OBJECTDIR}/sourceOfFiles/x500_main.o sourceOfFiles/x500_main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/x500_main.o.d" -o ${OBJECTDIR}/sourceOfFiles/x500_main.o sourceOfFiles/x500_main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 else
-${OBJECTDIR}/sourceOfFiles/io_setup.o: sourceOfFiles/io_setup.c  .generated_files/8a4e4f007b7f631444c34cf84a2de2aa23dedf86.flag .generated_files/35b059e026b463500ba6e17fe172f881244224c5.flag
+${OBJECTDIR}/sourceOfFiles/io_setup.o: sourceOfFiles/io_setup.c  .generated_files/flags/default/ac137a18d9fa4a99b1e69ac7a48959b411d0c01c .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
 	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
 	@${RM} ${OBJECTDIR}/sourceOfFiles/io_setup.o.d 
 	@${RM} ${OBJECTDIR}/sourceOfFiles/io_setup.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/io_setup.o.d" -o ${OBJECTDIR}/sourceOfFiles/io_setup.o sourceOfFiles/io_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/io_setup.o.d" -o ${OBJECTDIR}/sourceOfFiles/io_setup.o sourceOfFiles/io_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/sourceOfFiles/x500_main.o: sourceOfFiles/x500_main.c  .generated_files/fdff2619d1eb6cc2de93c6966790493d79394cb6.flag .generated_files/35b059e026b463500ba6e17fe172f881244224c5.flag
+${OBJECTDIR}/sourceOfFiles/x500_main.o: sourceOfFiles/x500_main.c  .generated_files/flags/default/a78d2651ad8e03556e7c225e5b31c85db009f99c .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
 	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
 	@${RM} ${OBJECTDIR}/sourceOfFiles/x500_main.o.d 
 	@${RM} ${OBJECTDIR}/sourceOfFiles/x500_main.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/x500_main.o.d" -o ${OBJECTDIR}/sourceOfFiles/x500_main.o sourceOfFiles/x500_main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/x500_main.o.d" -o ${OBJECTDIR}/sourceOfFiles/x500_main.o sourceOfFiles/x500_main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 
