@@ -19,7 +19,6 @@ extern "C" {
 
 void uart1_setup(void);
 
-
 #ifdef	__cplusplus
 }
 #endif
