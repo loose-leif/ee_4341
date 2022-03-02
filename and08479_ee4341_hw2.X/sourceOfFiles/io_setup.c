@@ -15,6 +15,7 @@
 #pragma config FVBUSONIO = ON          // USB VBUS ON Selection->Controlled by USB Module
 
 // DEVCFG2
+// LOL
 #pragma config FPLLIDIV = DIV_2        // PLL Input Divider->2x Divider
 #pragma config FPLLMUL = MUL_20        // PLL Multiplier->20x Multiplier
 #pragma config UPLLIDIV = DIV_12       // USB PLL Input Divider->12x Divider
