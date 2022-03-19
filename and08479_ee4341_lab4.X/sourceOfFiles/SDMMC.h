@@ -1,7 +1,7 @@
 /*
 ** SDMMC.h SD card interface
 */
-#define FAIL FALSE
+//#define FAIL FALSE
 // Init ERROR code definitions
 #define E_COMMAND_ACK 0x80
 #define E_INIT_TIMEOUT 0x81
