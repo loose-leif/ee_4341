@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=sourceOfFiles/uart1_setup.c sourceOfFiles/RWTest.c sourceOfFiles/SDMMC.c
+SOURCEFILES_QUOTED_IF_SPACED=RWTest.c SDMMC.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/sourceOfFiles/uart1_setup.o ${OBJECTDIR}/sourceOfFiles/RWTest.o ${OBJECTDIR}/sourceOfFiles/SDMMC.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/sourceOfFiles/uart1_setup.o.d ${OBJECTDIR}/sourceOfFiles/RWTest.o.d ${OBJECTDIR}/sourceOfFiles/SDMMC.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/RWTest.o ${OBJECTDIR}/SDMMC.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/RWTest.o.d ${OBJECTDIR}/SDMMC.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/sourceOfFiles/uart1_setup.o ${OBJECTDIR}/sourceOfFiles/RWTest.o ${OBJECTDIR}/sourceOfFiles/SDMMC.o
+OBJECTFILES=${OBJECTDIR}/RWTest.o ${OBJECTDIR}/SDMMC.o
 
 # Source Files
-SOURCEFILES=sourceOfFiles/uart1_setup.c sourceOfFiles/RWTest.c sourceOfFiles/SDMMC.c
+SOURCEFILES=RWTest.c SDMMC.c
 
 
 
@@ -88,7 +88,7 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=32MX470F512L
 MP_LINKER_FILE_OPTION=
@@ -107,42 +107,30 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/sourceOfFiles/uart1_setup.o: sourceOfFiles/uart1_setup.c  .generated_files/flags/default/39e68776d71eee2c868bdb605a7e88900aa55f4f .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
-	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/uart1_setup.o.d 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/uart1_setup.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/uart1_setup.o.d" -o ${OBJECTDIR}/sourceOfFiles/uart1_setup.o sourceOfFiles/uart1_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+${OBJECTDIR}/RWTest.o: RWTest.c  .generated_files/flags/default/441a8caa259e1aab4211e2259c8d26d9a7cb923 .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/RWTest.o.d 
+	@${RM} ${OBJECTDIR}/RWTest.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/RWTest.o.d" -o ${OBJECTDIR}/RWTest.o RWTest.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/sourceOfFiles/RWTest.o: sourceOfFiles/RWTest.c  .generated_files/flags/default/bc0b555caae20f09b4fe45d561247bb55855c60f .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
-	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/RWTest.o.d 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/RWTest.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/RWTest.o.d" -o ${OBJECTDIR}/sourceOfFiles/RWTest.o sourceOfFiles/RWTest.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
-	
-${OBJECTDIR}/sourceOfFiles/SDMMC.o: sourceOfFiles/SDMMC.c  .generated_files/flags/default/bdac7c13534b6f892b803d0ea568bd4ea47c84c4 .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
-	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/SDMMC.o.d 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/SDMMC.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/SDMMC.o.d" -o ${OBJECTDIR}/sourceOfFiles/SDMMC.o sourceOfFiles/SDMMC.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+${OBJECTDIR}/SDMMC.o: SDMMC.c  .generated_files/flags/default/a245f4c01c5e295c99ea16dde1e3cff61d2a77b1 .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SDMMC.o.d 
+	@${RM} ${OBJECTDIR}/SDMMC.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/SDMMC.o.d" -o ${OBJECTDIR}/SDMMC.o SDMMC.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 else
-${OBJECTDIR}/sourceOfFiles/uart1_setup.o: sourceOfFiles/uart1_setup.c  .generated_files/flags/default/18649757a9c3b2cedb420ad02f54200a4933ac88 .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
-	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/uart1_setup.o.d 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/uart1_setup.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/uart1_setup.o.d" -o ${OBJECTDIR}/sourceOfFiles/uart1_setup.o sourceOfFiles/uart1_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+${OBJECTDIR}/RWTest.o: RWTest.c  .generated_files/flags/default/352e92c19cbb7dee75f59eef4c26cc84adebfcc7 .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/RWTest.o.d 
+	@${RM} ${OBJECTDIR}/RWTest.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/RWTest.o.d" -o ${OBJECTDIR}/RWTest.o RWTest.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
-${OBJECTDIR}/sourceOfFiles/RWTest.o: sourceOfFiles/RWTest.c  .generated_files/flags/default/e0c2d995f2f93e3b41c0d3e91bf968e7571afbbb .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
-	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/RWTest.o.d 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/RWTest.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/RWTest.o.d" -o ${OBJECTDIR}/sourceOfFiles/RWTest.o sourceOfFiles/RWTest.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
-	
-${OBJECTDIR}/sourceOfFiles/SDMMC.o: sourceOfFiles/SDMMC.c  .generated_files/flags/default/539c2122ee269885d2a2c269cc805aa652783cde .generated_files/flags/default/5a72ac1cc227a866bb30217c0e6ea1920c4e18c3
-	@${MKDIR} "${OBJECTDIR}/sourceOfFiles" 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/SDMMC.o.d 
-	@${RM} ${OBJECTDIR}/sourceOfFiles/SDMMC.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/sourceOfFiles/SDMMC.o.d" -o ${OBJECTDIR}/sourceOfFiles/SDMMC.o sourceOfFiles/SDMMC.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+${OBJECTDIR}/SDMMC.o: SDMMC.c  .generated_files/flags/default/277d65ace2d87a948b7c8d3f4ecbb03649a0e27 .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SDMMC.o.d 
+	@${RM} ${OBJECTDIR}/SDMMC.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/SDMMC.o.d" -o ${OBJECTDIR}/SDMMC.o SDMMC.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 
@@ -155,15 +143,15 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
-	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -g   -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)      -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D=__DEBUG_D,--defsym=_min_heap_size=512,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -mdfp="${DFP_DIR}"
+${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+	@${MKDIR} ${DISTDIR} 
+	${MP_CC} $(MP_EXTRA_LD_PRE) -g   -mprocessor=$(MP_PROCESSOR_OPTION)  -o ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)      -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D=__DEBUG_D,--defsym=_min_heap_size=512,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,${DISTDIR}/memoryfile.xml -mdfp="${DFP_DIR}"
 	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
-	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=_min_heap_size=512,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -mdfp="${DFP_DIR}"
-	${MP_CC_DIR}\\xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
+${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+	@${MKDIR} ${DISTDIR} 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=_min_heap_size=512,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,${DISTDIR}/memoryfile.xml -mdfp="${DFP_DIR}"
+	${MP_CC_DIR}\\xc32-bin2hex ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
 endif
 
 
@@ -176,8 +164,8 @@ endif
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r build/default
-	${RM} -r dist/default
+	${RM} -r ${OBJECTDIR}
+	${RM} -r ${DISTDIR}
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl
