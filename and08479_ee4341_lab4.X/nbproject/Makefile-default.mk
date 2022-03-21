@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=RWTest.c SDMMC.c
+SOURCEFILES_QUOTED_IF_SPACED=RWTest.c SDMMC.c ../take2_ee4314_lab4.X/uart1_setup.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/RWTest.o ${OBJECTDIR}/SDMMC.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/RWTest.o.d ${OBJECTDIR}/SDMMC.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/RWTest.o ${OBJECTDIR}/SDMMC.o ${OBJECTDIR}/_ext/1671593397/uart1_setup.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/RWTest.o.d ${OBJECTDIR}/SDMMC.o.d ${OBJECTDIR}/_ext/1671593397/uart1_setup.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/RWTest.o ${OBJECTDIR}/SDMMC.o
+OBJECTFILES=${OBJECTDIR}/RWTest.o ${OBJECTDIR}/SDMMC.o ${OBJECTDIR}/_ext/1671593397/uart1_setup.o
 
 # Source Files
-SOURCEFILES=RWTest.c SDMMC.c
+SOURCEFILES=RWTest.c SDMMC.c ../take2_ee4314_lab4.X/uart1_setup.c
 
 
 
@@ -119,6 +119,12 @@ ${OBJECTDIR}/SDMMC.o: SDMMC.c  .generated_files/flags/default/a245f4c01c5e295c99
 	@${RM} ${OBJECTDIR}/SDMMC.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/SDMMC.o.d" -o ${OBJECTDIR}/SDMMC.o SDMMC.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
+${OBJECTDIR}/_ext/1671593397/uart1_setup.o: ../take2_ee4314_lab4.X/uart1_setup.c  .generated_files/flags/default/39a755205b7d126c9e575827e5fddc750e5cb512 .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
+	@${MKDIR} "${OBJECTDIR}/_ext/1671593397" 
+	@${RM} ${OBJECTDIR}/_ext/1671593397/uart1_setup.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1671593397/uart1_setup.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/_ext/1671593397/uart1_setup.o.d" -o ${OBJECTDIR}/_ext/1671593397/uart1_setup.o ../take2_ee4314_lab4.X/uart1_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
 else
 ${OBJECTDIR}/RWTest.o: RWTest.c  .generated_files/flags/default/352e92c19cbb7dee75f59eef4c26cc84adebfcc7 .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
 	@${MKDIR} "${OBJECTDIR}" 
@@ -131,6 +137,12 @@ ${OBJECTDIR}/SDMMC.o: SDMMC.c  .generated_files/flags/default/277d65ace2d87a948b
 	@${RM} ${OBJECTDIR}/SDMMC.o.d 
 	@${RM} ${OBJECTDIR}/SDMMC.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/SDMMC.o.d" -o ${OBJECTDIR}/SDMMC.o SDMMC.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/_ext/1671593397/uart1_setup.o: ../take2_ee4314_lab4.X/uart1_setup.c  .generated_files/flags/default/a6a8c5a1ab649ae85543df87b252f578798031f1 .generated_files/flags/default/8745ad97b176766356acb69d287b7157ab13b58b
+	@${MKDIR} "${OBJECTDIR}/_ext/1671593397" 
+	@${RM} ${OBJECTDIR}/_ext/1671593397/uart1_setup.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1671593397/uart1_setup.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/_ext/1671593397/uart1_setup.o.d" -o ${OBJECTDIR}/_ext/1671593397/uart1_setup.o ../take2_ee4314_lab4.X/uart1_setup.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 
@@ -145,12 +157,12 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -g   -mprocessor=$(MP_PROCESSOR_OPTION)  -o ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)      -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D=__DEBUG_D,--defsym=_min_heap_size=512,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,${DISTDIR}/memoryfile.xml -mdfp="${DFP_DIR}"
+	${MP_CC} $(MP_EXTRA_LD_PRE) -g   -mprocessor=$(MP_PROCESSOR_OPTION)  -o ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)      -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D=__DEBUG_D,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,${DISTDIR}/memoryfile.xml -mdfp="${DFP_DIR}"
 	
 else
 ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=_min_heap_size=512,--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,${DISTDIR}/memoryfile.xml -mdfp="${DFP_DIR}"
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--no-code-in-dinit,--no-dinit-in-serial-mem,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--memorysummary,${DISTDIR}/memoryfile.xml -mdfp="${DFP_DIR}"
 	${MP_CC_DIR}\\xc32-bin2hex ${DISTDIR}/and08479_ee4341_lab4.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
 endif
 

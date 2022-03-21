@@ -3,18 +3,9 @@
 */
 #include <xc.h>
 #include "SDMMC.h"
-
-// I/O definitions
-// NOTE: Do not use the pins given
-// by the MassStorage.pdf file. To find the 
-// correct pinout, use the SDCardBoard and
-// IO Expansion Board Information Sheet PDF's
-// to map the pins to the top-right slot on the
-// expansion board.
 #define SDWP _RF1 // Write Protect input
 #define SDCD _RF0 // Card Detect input
 #define SDCS _RB1 // Card Select output
-
 
 // Macros from reference file go here
 
@@ -25,7 +16,7 @@
 #define enableSD() SDCS = 0
 
 // SD card commands from reference file go here
-
+//
 // SD card commands
 
 #define RESET 0 // a.k.a. GO_IDLE (CMD0)
@@ -121,21 +112,23 @@ int initMedia(){
         
     }
     
-    
     // 3. now select the card
     enableSD();
-    
     
     // 4. send a single RESET command, then disable SD, and
     // be sure to check if the command acknowledge failed
     
     r = sendSDCmd(RESET, 0, 0x00); disableSD();
-    if(r!=1)
+    if(r!=1){
+        printf("ack error\n\r");
         return E_COMMAND_ACK;
+    }
     
     // 5. send repeatedly INIT until Idle terminates, and
     // be sure to check if the initialization failed due to timeout
     
+        printf("error\n\r");
+        
         for(i = 0; i<I_TIMEOUT; i++){
             
             r = sendSDCmd(INIT, 0, 0x00); disableSD();
@@ -143,8 +136,12 @@ int initMedia(){
                 break;
             
         }
-    if(i == I_TIMEOUT){
         
+        //printf("error\n\r");
+        
+    if(i == R_TIMEOUT){
+        
+        printf("timeout error\n\r");
         return E_INIT_TIMEOUT;
         
     }
@@ -154,7 +151,7 @@ int initMedia(){
     SPI1CON = 0;
     SPI1BRG = 0;
     SPI1CON = 0x8120;
-    
+
     return 0;
 
 } // init media
