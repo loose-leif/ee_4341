@@ -38,6 +38,7 @@ void initSD(void){
     // disable SD Card for initialization
     
     SDCS = 1;
+    _TRISB1 = 0;
 //    SDCD = 0;
     // Set SPI baud rate to 250 kHz
     
@@ -79,7 +80,7 @@ int sendSDCmd(unsigned char c, unsigned a, unsigned crc) {
     // now wait for a response, allow for up to 8 bytes delay
     for( i=0; i<8; i++)
     {
-      r=readSPI();
+      r = readSPI();
         
     if ( r != 0xFF)
         
@@ -106,7 +107,7 @@ int initMedia(){
     disableSD();
     
     // 2. send 80 clock cycles start up
-    for(i=0; i<80; i++){
+    for(i=0; i<10; i++){
         
         clockSPI();
         
@@ -149,7 +150,7 @@ int initMedia(){
     // 6. increase speed: disable SPI first, change settings and re-enable
     
     SPI1CON = 0;
-    SPI1BRG = 0;
+    SPI1BRG = 1;
     SPI1CON = 0x8120;
 
     return 0;
@@ -224,7 +225,7 @@ int writeSECTOR(LBA a, char *p){
         writeSPI( DATA_START);
         // send 512 bytes of data
         for( i=0; i<512; i++)
-        writeSPI( *p++);
+            writeSPI( *p++);
         // 3. send dummy CRC
         clockSPI();
         clockSPI();

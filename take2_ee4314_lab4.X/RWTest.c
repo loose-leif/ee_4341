@@ -15,8 +15,8 @@
 #include <xc.h>
 
 
-#define START_ADDRESS 0 // start block address
-#define N_BLOCKS 1 // number of blocks 
+#define START_ADDRESS 10000 // start block address
+#define N_BLOCKS 10 // number of blocks 
 
 #define LED3 _RD2  // visual feedback about SD usage status - fail
 #define LED2 _RD1  // visual feedback about SD usage status - pass
@@ -39,10 +39,6 @@
  
 int main(void){
  
-    SDI1Rbits.SDI1R = 0b1010;  // map RC4 to SDI1
-    RPD9Rbits.RPD9R = 0b0111; // map SS1 to RD9
-    RPD0Rbits.RPD0R = 0b1000; // map SDO1 to RD0
- 
     TRISDbits.TRISD1 = 0;
     TRISDbits.TRISD2 = 0;
 
@@ -50,6 +46,8 @@ int main(void){
     
     LED3 = 0;
     LED2 = 0;
+    
+    //while(1);
     
     LBA addr;
     int i, j, r;
@@ -59,6 +57,15 @@ int main(void){
     SYSKEY = 0x556699AA;
     
     CFGCONbits.IOLOCK = 0;
+    
+    // changed
+    
+        SDI1Rbits.SDI1R = 0b1010;  // map RC4 to SDI1
+        RPD9Rbits.RPD9R = 0b0111; // map SS1 to RD9
+        RPD0Rbits.RPD0R = 0b1000; // map SDO1 to RD0
+    
+    // changed
+    
     
     U1RXRbits.U1RXR = 0b0010;
     RPF5Rbits.RPF5R = 0b0011;
@@ -93,7 +100,7 @@ int main(void){
     
     initSD();
     
-    printf("hello\n\r");
+    //printf("hello\n\r");
     
     // 3. fill the buffer with pattern
     
@@ -104,7 +111,7 @@ int main(void){
     
     while(!getCD());
     
-    printf("end chip\n\r");
+    //printf("end chip\n\r");
     
     i = initMedia();
     
@@ -113,18 +120,17 @@ int main(void){
         //clrLCD(); 
         //putsLCD( " Failed Init " ); 
         
-        printf("%d\n\r", i);
+        //printf("%d\n\r", i);
         
-        printf("end media error\n\r");
+        //printf("end media error\n\r");
         
         goto End; 
     }
     
-    printf("end initMedia\n\r");
-    
     // 5. fill 16 groups of N_BLOCK sectors with data
  
     addr = START_ADDRESS;
+    
     for( j=0; j<16; j++)
     {
         for( i=0; i<N_BLOCKS; i++)
@@ -133,6 +139,7 @@ int main(void){
             { // writing failed
                 
                 printf("write fail error\n\r");
+                
             goto End;
             }
         } // i
@@ -147,7 +154,7 @@ int main(void){
     {
         for( i=0; i<N_BLOCKS; i++)
         { // read back one block at a time
-            if (!readSECTOR( addr+i*j, buffer))
+            if (!readSECTOR( addr+(i*j), buffer))
             { // reading failed
                 //putsLCD( "Failed to Read");
                 printf("read1 sector\n\r");
@@ -177,7 +184,7 @@ int main(void){
     
     LED2 = 1;
     
-    printf("end fail\n\r");
+    printf("end fail\n\r\n\r\n\r");
     
     // main loop
     while(1);
